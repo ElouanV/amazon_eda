@@ -1,4 +1,5 @@
 from skmine.itemsets import LCM
+import time
 
 
 def create_and_fit_lcm(df, supp_ratio=0.5):
@@ -10,5 +11,8 @@ def create_and_fit_lcm(df, supp_ratio=0.5):
     """
     min_supp = int(supp_ratio * len(df))
     lcm = LCM(min_supp=min_supp)
+    start = time.time()
     lcm.fit(df)
+    end = time.time()
+    print(f'LCM fit in {end - start} seconds')
     return lcm
