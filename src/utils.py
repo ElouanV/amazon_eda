@@ -20,7 +20,7 @@ def getDF(path, save=True):
 
     save_path = path.replace('.json', '.csv')
     if save:
-        df.to_csv(save_path, index=False)
+        df.to_csv(save_path, index=False, escapechar='\\')
     return df
 
 def build_id_dict(df):
